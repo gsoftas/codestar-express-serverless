@@ -2,9 +2,11 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
+  const response = Object.assign({}, res);
+  
   res.send({
     "Output": "Hello Stranger!",
-    "request object": {req}, 
+    "Response": JSON.stringify(response)
   });
 });
 
