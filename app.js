@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
-  const response = Object.assign({}, res);
+  const request = Object.assign({}, req);
 
   if(req.query.name) {
     res.send({
@@ -11,7 +11,7 @@ app.get('/', function(req, res) {
   } else {
     res.send({
       "Output": "Hello Stranger!",
-      "Response": JSON.stringify(response)
+      "Response": JSON.stringify(request)
     });
   }
 });
