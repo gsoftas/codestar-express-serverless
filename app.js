@@ -3,19 +3,16 @@ var app = express();
 
 app.get('/', function(req, res) {
   res.send({
-    "Output": "Hello World!"
+    "Output": "Hello Stranger!",
+    "request object": req, 
   });
 });
 
-app.get('/name/:name', function(req, res) {
-  if(req.params.name) {
+app.get('/:name', function(req, res) {
+  if(req.query.name) {
     res.send({
-      "Output": `Hello ${req.params.name}`
+      "Output": `Hello ${req.query.name}`
     })
-  } else {
-    res.send({
-      "Output": "Hello World!"
-    });
   }
 });
 
