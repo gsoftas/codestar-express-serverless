@@ -9,27 +9,39 @@ app.get('/', function(req, res) {
     })
   } else {
     res.send({
-      "Output": "Hello Stranger!"
+      "Output": "Hello GET Stranger!"
     });
 
     console.log("Request: ", req);
   }
 });
 
-app.post('/', function(req, res) {
-  res.send({
-    "Output": "Hello World!"
-  });
-});
+// app.post('/', function(req, res) {
+//   res.send({
+//     "Output": "Hello World!"
+//   });
+// });
 
-app.post('/name/:name', function(req, res) {
+app.post('/', function(req, res) {
   if(req.params.name) {
     res.send({
       "Output": `Hello ${req.params.name}`
     })
   } else {
     res.send({
-      "Output": "Hello World!"
+      "Output": "Hello POST Stranger!"
+    });
+  }
+});
+
+app.post('/name', function(req, res) {
+  if(req.params.name) {
+    res.send({
+      "Output": `Hello ${req.params.name}`
+    })
+  } else {
+    res.send({
+      "Output": "Hello POST Stranger!"
     });
   }
 });
